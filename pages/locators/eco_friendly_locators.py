@@ -1,0 +1,17 @@
+from selenium.webdriver.common.by import By
+
+cards_loc = (By.CLASS_NAME,'product-image-photo')
+name_item_loc = (By.CLASS_NAME,'product-item-link')
+color_loc = (By.CSS_SELECTOR, '[option-label="29"]')
+size_loc = (By.CSS_SELECTOR, '[option-label="Orange"]')
+button_cart_loc = (By.CSS_SELECTOR, '[title="Add to Cart"]')
+message_successful_added_loc = (By.CSS_SELECTOR, '[data-bind="html: $parent.prepareMessageForHtml(message.text)"]')
+cart_loc = (By.LINK_TEXT, 'shopping cart')
+name_in_cart_loc = (By.XPATH, '(//div[@class="product-item-details"]//strong[@class="product-item-name"]/a)[2]')
+cart_icon_loc = (By.CSS_SELECTOR, '[class = "action showcart"]')
+cart_icon_item_name_loc = (By.CSS_SELECTOR, '[data-bind="attr: {href: product_url}, html: product_name"]')
+remove_icon_loc = (By.CSS_SELECTOR, '[title="Remove item"]')
+alert_accept_loc = (By.CLASS_NAME, 'action-accept')
+inform_message_loc = (By.CLASS_NAME,'subtitle')
+select_sort_loc = (By.CSS_SELECTOR, '[data-role="sorter"]')
+price_loc = (By.CSS_SELECTOR, '[data-price-type="finalPrice"]')
