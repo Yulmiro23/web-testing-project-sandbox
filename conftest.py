@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from pages.create_account_pages import CreateAccount
 from pages.eco_friendly_pages import EcoFriendlyPage
@@ -8,7 +9,9 @@ from time import sleep
 
 @pytest.fixture()
 def driver():
-    chrome_driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--headless')
+    chrome_driver = webdriver.Chrome(options=options)
     chrome_driver.maximize_window()
     yield chrome_driver
     sleep(10)
