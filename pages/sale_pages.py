@@ -2,6 +2,7 @@ from pages.base_pages import BasePage
 from pages.locators import sale_locators as loc
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from time import sleep
 
 
 class SalePage(BasePage):
@@ -13,6 +14,8 @@ class SalePage(BasePage):
         ActionChains(self.driver).key_down(Keys.CONTROL).click(picture).key_up(Keys.CONTROL).perform()
         tabs = self.driver.window_handles
         self.driver.switch_to.window(tabs[1])
+        sleep(5)
+
 
 
     def open_page_in_same_tab(self):
@@ -24,6 +27,7 @@ class SalePage(BasePage):
     def open_point(self):
         point = self.find(loc.menu_point)
         point.click()
+        sleep(5)
 
 
     def check_correct_section(self):

@@ -11,7 +11,6 @@ from time import sleep
 def driver():
     options = Options()
     options.add_argument('--headless')
-    options.add_argument('window-size=1920,1080')
     chrome_driver = webdriver.Chrome(options=options)
     chrome_driver.maximize_window()
     yield chrome_driver

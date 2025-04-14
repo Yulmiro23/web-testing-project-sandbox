@@ -4,6 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from time import sleep
 
 
 class EcoFriendlyPage(BasePage):
@@ -18,7 +19,18 @@ class EcoFriendlyPage(BasePage):
         colour = self.find(loc.color_loc)
         size = self.find(loc.size_loc)
         button = self.find(loc.button_cart_loc)
-        ActionChains(self.driver).move_to_element(card).click(colour).click(size).click(button).perform()
+        actions = ActionChains(self.driver)
+        actions.move_to_element(card).perform()
+        sleep(0.5)
+        actions = ActionChains(self.driver)
+        actions.click(colour).perform()
+        sleep(0.5)
+        actions = ActionChains(self.driver)
+        actions.click(size).perform()
+        sleep(0.5)
+        actions = ActionChains(self.driver)
+        actions.click(button).perform()
+        # ActionChains(self.driver).move_to_element(card).click(colour).click(size).click(button).perform()
         WebDriverWait(self.driver, 5).until(
             EC.text_to_be_present_in_element(
                 loc.message_successful_added_loc,
@@ -71,6 +83,7 @@ class EcoFriendlyPage(BasePage):
         select_sort = self.find(loc.select_sort_loc)
         dropdown_sort = Select(select_sort)
         dropdown_sort.select_by_value('price')
+        sleep(10)
 
 
     def check_sort(self):
