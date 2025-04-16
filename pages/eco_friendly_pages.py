@@ -72,6 +72,7 @@ class EcoFriendlyPage(BasePage):
         select_sort = self.find(loc.select_sort_loc)
         dropdown_sort = Select(select_sort)
         dropdown_sort.select_by_value('price')
+        WebDriverWait(self.driver, 5).until(EC.url_to_be("https://magento.softwaretestingboard.com/collections/eco-friendly.html?product_list_order=price"))
 
 
 
