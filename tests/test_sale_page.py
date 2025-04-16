@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.smoke
 def test_open_section_by_picture(create_sale_page):
     create_sale_page.open_page() # открываем страницу
     create_sale_page.check_page_header_title_is('Sale') # проверяем заголовок страницы
@@ -5,6 +9,7 @@ def test_open_section_by_picture(create_sale_page):
     create_sale_page.check_page_header_title_is('Women Sale') # проверяем заголовок открытой страницы
 
 
+@pytest.mark.regression
 def test_open_section_by_link(create_sale_page):
     create_sale_page.open_page() # открываем страницу
     create_sale_page.check_page_header_title_is('Sale') # проверяем заголовок страницы
@@ -12,6 +17,7 @@ def test_open_section_by_link(create_sale_page):
     create_sale_page.check_page_header_title_is('Tees') # проверяем заголовок открытой страницы
 
 
+@pytest.mark.extended
 def test_open_point_in_menu(create_sale_page):
     create_sale_page.open_page() # открываем страницу
     create_sale_page.check_page_header_title_is('Sale') # проверяем заголовок страницы

@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.smoke
 def test_create_account(create_acc_page):
     create_acc_page.open_page()  # открываем страницу
     create_acc_page.check_page_header_title_is('Create New Customer Account')  # проверяем заголовок страницы
@@ -6,6 +10,7 @@ def test_create_account(create_acc_page):
     create_acc_page.check_account_data(first_name, last_name, email)  # cравниваем сохраненные данные и те, что на странице информации
 
 
+@pytest.mark.regression
 def test_different_password(create_acc_page):
     create_acc_page.open_page()  # открываем страницу
     create_acc_page.check_page_header_title_is('Create New Customer Account')  # проверяем заголовок страницы
@@ -13,6 +18,7 @@ def test_different_password(create_acc_page):
     create_acc_page.check_error_different_password('Please enter the same value again.') # проверяем сообщение об ошибке
 
 
+@pytest.mark.extended
 def test_required_fields(create_acc_page):
     create_acc_page.open_page()  # открываем страницу
     create_acc_page.check_page_header_title_is('Create New Customer Account')  # проверяем заголовок страницы

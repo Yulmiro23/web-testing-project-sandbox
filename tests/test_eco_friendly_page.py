@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.smoke
 def test_add_to_cart(create_eco_friendly_page):
     create_eco_friendly_page.open_page()  # открываем страницу
     create_eco_friendly_page.check_page_header_title_is('Eco Friendly')  # проверяем заголовок страницы
@@ -7,6 +11,7 @@ def test_add_to_cart(create_eco_friendly_page):
     create_eco_friendly_page.check_item_in_cart(item_name)  # сравниваем имя товара в корзине и сохраненное
 
 
+@pytest.mark.regression
 def test_remove_item_from_cart(create_eco_friendly_page):
     create_eco_friendly_page.open_page()  # открываем страницу
     create_eco_friendly_page.check_page_header_title_is('Eco Friendly')  # проверяем заголовок страницы
@@ -17,6 +22,7 @@ def test_remove_item_from_cart(create_eco_friendly_page):
     create_eco_friendly_page.approve_alert()  # подтверждаем удаление товара
 
 
+@pytest.mark.extended
 def test_sort_by_price(create_eco_friendly_page):
     create_eco_friendly_page.open_page()  # открываем страницу
     create_eco_friendly_page.check_page_header_title_is('Eco Friendly')  # проверяем заголовок страницы
